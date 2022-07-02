@@ -1,0 +1,46 @@
+{% extends 'app/base.html' %}
+{%load static %}
+{%block navbar%}
+<a href="{% url 'index' %}"><img class="logo" src="{% static 'app/img/logo_mis_macetitas_1370x256.png' %}" alt=""></a>
+<div class="collapse navbar-collapse" id="mynavbar">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link activo" href="{% url 'quienessomos' %}">¿Quiénes somos?</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'contacto' %}">Contacto</a>
+    </li>
+
+  </ul>
+  <form class="d-flex">
+    <li class="nav-item navbar-nav me-auto">
+      <a class="nav-link " href="{% url 'login' %}">Iniciar sesión</a>
+    </li>
+</form>
+{%endblock%}
+{%block contenido %}
+<div class="decoracion"><h1>¿Quiénes somos?</h1></div>
+<section class="container-fluid" id="desc-quienes-somos">
+    <div id="div-desc-quienes-somos">
+    <div class="row">
+        <div class="col-6">
+            <img src="{% static 'app/img/quienes-somos.jpg' %}" alt=""></div>
+        <div class="col-6">
+            <p>Mis macetitas nace el año 2022 con la motivación de 
+                contribuir desde la región Metropolitana al desarrollo de acciones 
+                que fomenten el cuidado ambiental y destaquen el aporte de las 
+                comunidades locales en la formulación de soluciones ante la crisis 
+                ambiental.</p>
+            <p>Durante los primeros años centramos nuestras acciones en la 
+                promoción del reciclaje con recicladores de base, 
+                pero con el paso del tiempo se fueron abriendo puertas que nos 
+                permitieron ganar experiencia en proyectos de restauración ecológica 
+                comunitaria y en educación ambiental.</p>
+            </div>
+    </div>
+    </div>
+</section>
+{% endblock%}

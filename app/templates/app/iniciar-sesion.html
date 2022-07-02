@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+{%load static %}
+{%block navbar%}
+<a href="{% url 'index' %}"><img class="logo" src="{% static 'app/img/logo_mis_macetitas_1370x256.png' %}" alt=""></a>
+<div class="collapse navbar-collapse" id="mynavbar">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'quienessomos' %}">¿Quiénes somos?</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link activo" href="{% url 'login' %}">Iniciar sesión</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'contacto' %}">Contacto</a>
+    </li>
+
+  </ul>
+{%endblock%}
+{%block contenido %}
+<div class="decoracion"></div>
+<form action="{% url 'menuingresado' %}" class="formulario">
+  <h1>Iniciar sesión</h1>
+ <div class="contenedor" id="formulario-inicio-registro">
+   <p style="text-align: left;">Correo:</p>
+     <div class="input-contenedor">
+     <i class="fas fa-envelope icon"></i>
+     <input type="email" placeholder="contacto@macetitas.cl" id="txtCorreo" name="txtCorreo" >
+     </div>
+     <p style="text-align: left;">Contraseña:</p>
+     <div class="input-contenedor">
+     <i id="input-form-1"class="fas fa-key icon "></i>
+     <input type="password" placeholder="123456" id="txtPass" name="txtPass"> 
+     </div>
+     <input href="{% url 'menuingresado' %}" type="submit" value="Ingresar" class="btn btn-success"  id="btnIngresar" name="btnIngresar" >
+     <p>¿No tienes una cuenta? <a class="link" href="{% url 'registrarse' %}">Registrate </a></p>
+     <div style="margin-left: 100px;">
+       <a href="{% url 'menuingresado' %}">Cliente |</a>
+       <a href="{% url 'productosindex' %}">Ejecutivo </a>
+       <a href="{% url 'usuarioindex' %}">| Administrador </a>
+      </div>
+ </div>
+</form>
+</body>
+{% endblock%}

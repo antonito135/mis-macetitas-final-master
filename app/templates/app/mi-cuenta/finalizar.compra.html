@@ -1,0 +1,131 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{%block navbar%}
+<a href="{% url 'menuingresado' %}"><img class="logo" src="{% static 'app/img/logo_mis_macetitas_1370x256.png' %}" alt=""></a>
+<div class="collapse navbar-collapse" id="mynavbar">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'menuingresado' %}">Inicio</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tienda</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href=" {% url 'maceteros' %} ">Maceteros</a></li>
+        <li><a class="dropdown-item" href=" {% url 'tierradehoja' %} ">Tierra de hoja</a></li>
+        <li><a class="dropdown-item" href="{% url 'arbustos' %} ">Arbustos</a></li>
+        <li><a class="dropdown-item" href=" {% url 'flores' %} ">Flores</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'historialcompras' %}">Historial compras</a>
+    </li>
+      <li>
+        {% if user.is_staff %}
+        <a class="nav-link" href="http://127.0.0.1:8000/admin/">administracion</a>
+        {% endif%}
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'suscripcion' %}">Suscripcion</a>
+      </li>
+    </li>
+  </ul>
+  <form class="d-flex">
+    <li class="nav-item dropdown navbar-nav me-auto">
+      <a class="nav-link fa-solid fa-cart-shopping activo"rel="icon" style="margin: 6px;" href="{% url 'carritocompras' %} "></a>
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Cuenta</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'modificardatos' %}">Modificar datos</a></li>
+        <li><a class="dropdown-item" href="{% url 'logout' %}">Salir</a></li>
+      </ul>
+    </li>
+  </form>
+{%endblock%}
+{% block contenido %}
+<div class="decoracion"><h1>Compras</h1></div>
+    <div class="contenedor-pago">
+      <div class="direccion-de-envio">
+      <h2>Dirección de envío</h2><hr>
+        <table>	
+          <tr>
+            <td><p>Correo electrónico:</td>
+            <td><input type="email"></p></td>
+          </tr>	
+          <tr>
+            <td><p>Nombre:</td>
+            <td><input type="text"></p></td>
+          </tr>	
+
+          <tr>
+            <td><p>Apellido:</td>
+            <td><input type="text"></p></td>
+          </tr>	
+          <tr>
+            <td><p>Teléfono:</td>
+            <td><input type="number"></p></td>
+          </tr>	
+          <tr>
+            <td><p>Calle, número y depto:</td>
+            <td><input type="text"></p></td>
+          </tr>	
+          <tr>
+            <td><p>Región:</td>
+            <td>
+        <select class="select" data-bind="
+    attr: {
+      name: inputName,
+      id: uid,
+      disabled: disabled,
+      'aria-describedby': getDescriptionId(),
+      'aria-required': required,
+      'aria-invalid': error() ? true : 'false',
+      placeholder: placeholder
+    },
+    hasFocus: focused,
+    optgroup: options,
+    value: value,
+    optionsCaption: caption,
+    optionsValue: 'value',
+    optionsText: 'label',
+    optionsAfterRender: function(option, item) {
+      if (item &amp;&amp; item.disabled) {
+        ko.applyBindingsToNode(option, {attr: {disabled: true}}, item);
+      }
+    }" name="region_id" id="KJBX1VL" aria-required="true" aria-invalid="false"><option value="">Escoge una región.</option><option data-title="I Tarapacá" value="512">I Tarapacá</option><option data-title="II Antofagasta" value="513">II Antofagasta</option><option data-title="III Atacama" value="514">III Atacama</option><option data-title="IV Coquimbo" value="515">IV Coquimbo</option><option data-title="IX La Araucanía" value="520">IX La Araucanía</option><option data-title="Región Metropolitana" value="524">Región Metropolitana</option><option data-title="V Valparaíso" value="516">V Valparaíso</option><option data-title="VI O’Higgins" value="517">VI O’Higgins</option><option data-title="VII Maule" value="518">VII Maule</option><option data-title="VIII Biobío" value="519">VIII Biobío</option><option data-title="X Los Lagos" value="521">X Los Lagos</option><option data-title="XI Aysén" value="522">XI Aysén</option><option data-title="XII Magallanes y Antártica" value="523">XII Magallanes y Antártica</option><option data-title="XIV Los Ríos" value="525">XIV Los Ríos</option><option data-title="XV Arica y Parinacota" value="526">XV Arica y Parinacota</option><option data-title="XVI Región de Ñuble" value="527">XVI Región de Ñuble</option></select>
+        </p></td>
+          </tr>
+        </table>
+        <p>Forma de pago:<br>
+          <div class="forma-de-pago">
+            <img src="{% static 'app/img/webpay.jpg' %}"><input type="checkbox"><br>
+            <img src="{% static 'app/img/khipu.png' %}"><input type="checkbox"><br>
+            <img src="{% static 'app/img/servipag.png' %}"><input type="checkbox"><br>
+          </div>
+        </p>
+      </div>
+          <div class="contenedor-finalizar">
+            <div class="resumen-finalizar">
+              <b>Resumen de compra</b><hr>
+              {% for aux in suscripciones %}
+              <form action="" method="post">
+                {% csrf_token %}
+                {% if user.get_username == aux.usuario %}
+
+                {% if aux.suscrito %}
+                <p>Total: {{ totaldescuento|floatformat:0 }}</p><hr>
+                {% else %}
+                
+                <p>Total: {{ total|floatformat:0 }}</p><hr>	
+                {% endif %}
+                {% endif %}
+              </form>
+              {% endfor %}
+              <p>Código descuento: <input type="text" placeholder="enviogratis"></p><hr>
+              <form action="" method="post">
+                {% csrf_token %}
+                <button class="boton-finalizar" type="submit" >Pagar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+{% endblock %}
+

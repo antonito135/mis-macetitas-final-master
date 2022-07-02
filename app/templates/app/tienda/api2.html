@@ -1,0 +1,60 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block navbar %}
+<a href="{% url 'menuingresado' %}"><img class="logo" src="{% static 'app/img/logo_mis_macetitas_1370x256.png' %}" alt=""></a>
+<div class="collapse navbar-collapse" id="mynavbar">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link" href=" {% url 'menuingresado' %} ">Inicio</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link activo dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tienda</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'maceteros' %}">Maceteros</a></li>
+        <li><a class="dropdown-item" href=" {% url 'tierradehoja' %} ">Tierra de hoja</a></li>
+        <li><a class="dropdown-item" href="{% url 'arbustos' %} ">Arbustos</a></li>
+        <li><a class="dropdown-item" href="{% url 'flores' %}">Flores</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'historialcompras' %}">Historial compras</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Cuenta</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'modificardatos' %} ">Modificar datos</a></li>
+        <li><a class="dropdown-item" href="{% url 'logout' %}">Salir</a></li>
+      </ul>
+      <li>
+        {% if user.is_staff %}
+        <a class="nav-link" href="http://127.0.0.1:8000/admin/">administracion</a>
+        {% endif%}
+      </li>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link  fa-solid fa-cart-shopping "rel="icon"  href="{% url 'carritocompras' %}"></a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block contenido %}
+<div class="decoracion"><h1>API Dead by daylight: PERKS.</h1></div>
+        <section>
+            <section id="mas-comprados">
+                <div id="div-mas-comprados">
+                  <div class="row">
+                    {% for aux in listaDigimon %}
+                      <div class="col-4">
+                        <p>{{aux.name}}</p>
+                        
+                        <img src="{{ aux.icon }}" class="img-fluid item-img w-100 mb-3">
+                       
+                        
+                        <br>
+                      </div>
+                    {% endfor %}    
+                  </div>
+                </div>
+              </section>          
+        </section>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'app/base.html' %}
+{%load static %}
+{% load crispy_forms_tags %}
+{%block navbar%}
+<a href="{% url 'index' %}"><img class="logo" src="{% static 'app/img/logo_mis_macetitas_1370x256.png' %}" alt=""></a>
+<div class="collapse navbar-collapse" id="mynavbar">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'usuarioindex' %}">Inicio</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link activo" href="{% url 'listarusuario' %}">Listado</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'agregarusuario' %}">Agregar</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'logout' %}">Salir</a>
+    </li>
+  </ul>
+{%endblock%}
+
+{% block contenido %}
+<section id="quienes-somos">
+  <div id="div-quienes-somos">
+    <h1>¡Listar usuarios!</h1>
+    <p>En está seccion podrás revisar todos los productos que estimes convenientes, también permitirá
+      administrar los productos ya agregados.</p>
+  </div>
+</section>
+<div class="container" style="padding: 50px; margin-top: 35px;">
+  <div class="row">
+          <div class="row">
+              <table>
+                <thead>
+                  <tr>
+                    <th>CODIGO</th>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                    <th>EMAIL</th>
+                    <th>PASSWORD</th>
+                    <th>TIPO USUARIO</th>
+                    <th>FECHA CREACION</th>
+                    <th>OPCIONES</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for aux in listaUsuario %}
+                  <tr>
+                    <td>{{ aux.codigo }}</td>
+                    <td>{{ aux.nombre }}</td>
+                    <td>{{ aux.apellido }}</td>
+                    <td>{{ aux.email }}</td>
+                    <td>{{ aux.password }}</td>
+                    <td>{{ aux.tipo_usuario }}</td>
+                    <td>{{ aux.created_at }}</td>
+                    <td>
+                      <a href="{% url 'modificarusuario' aux.codigo %}" class="btn btn-info" >Modificar</a>
+                      <a onclick="eliminarUsuario({{ aux.codigo }})" class="btn btn-danger">Eliminar</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+                
+              </table>
+          </div>
+    </div>   
+</div>
+<br>
+<br>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

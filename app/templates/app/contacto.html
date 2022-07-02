@@ -1,0 +1,64 @@
+{% extends 'app/base.html' %}
+{%load static %}
+{%block navbar%}
+<a href="{% url 'index' %}"><img class="logo" src="{% static 'app/img/logo_mis_macetitas_1370x256.png' %}" alt=""></a>
+
+<div class="collapse navbar-collapse" id="mynavbar">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'quienessomos' %}">¿Quiénes somos?</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link activo" href="{% url 'contacto' %}">Contacto</a>
+    </li>
+
+  </ul>
+  <form class="d-flex">
+    <li class="nav-item navbar-nav me-auto">
+      <a class="nav-link " href="{% url 'login' %}">Iniciar sesión</a>
+    </li>
+</form>
+{% endblock %}
+{% block contenido %}
+<div class="decoracion"><h1>Contacto</h1></div>
+<section class="container-fluid" id="desc-quienes-somos">
+    <div id="div-desc-quienes-somos">
+    <div class="row">
+        <div class="col-6 contacto">
+            <img src="{% static 'img/contacto.jpg' %}" alt="">
+              <div style="padding:20px;">
+                <p>Mismacetitas.cl</p>
+                <p>Teléfono: +569 13654785</p>
+                <p>Correo: contacto@mismacetitas.cl</p>
+                <p>Dirección: Barcelona 161, La Florida.</p>
+              </div>
+           </div>
+        <div class="col-6">
+          <div id="formulario">
+            <form action="mensaje-enviado.html" method="GET">
+                <label for="txtNombre">Nombre:</label>
+                  <input type="text" name="txtNombre" id="txtNombre">
+
+                <label for="txtCorreo">Correo:</label>                       
+                  <input type="email" name="txtCorreo" id="txtCorreo">
+
+                <label for="txtTelefono">Teléfono:</label>                           
+                  <input type="tel" name="txtTelefono" id="txtTelefono">
+                
+                <label for="txtMensaje">Mensaje:</label>
+                   <textarea name="txtMensaje" id="txtMensaje" cols="30" rows="10"></textarea>  
+
+                <input type="submit" value="Enviar Datos" name="btnEnviar" id="btnEnviar" class="btn btn-success">
+
+            </form>
+        </div>
+            </div>
+    </div>
+    </div>
+
+</section>
+
+{% endblock %}

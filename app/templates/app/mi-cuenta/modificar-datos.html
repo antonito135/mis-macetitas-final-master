@@ -1,0 +1,66 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{%block navbar%}
+<a href="{% url 'menuingresado' %}"><img class="logo" src="{% static 'app/img/logo_mis_macetitas_1370x256.png' %}" alt=""></a>
+<div class="collapse navbar-collapse" id="mynavbar">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'menuingresado' %}">Inicio</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tienda</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href=" {% url 'maceteros' %} ">Maceteros</a></li>
+        <li><a class="dropdown-item" href=" {% url 'tierradehoja' %} ">Tierra de hoja</a></li>
+        <li><a class="dropdown-item" href="{% url 'arbustos' %} ">Arbustos</a></li>
+        <li><a class="dropdown-item" href=" {% url 'flores' %} ">Flores</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'historialcompras' %}">Historial compras</a>
+    </li>
+      <li>
+        {% if user.is_staff %}
+        <a class="nav-link" href="http://127.0.0.1:8000/admin/">administracion</a>
+        {% endif%}
+      </li>
+    </li>
+  </ul>
+  <form class="d-flex">
+    <li class="nav-item dropdown navbar-nav me-auto">
+      <a class="nav-link fa-solid fa-cart-shopping "rel="icon" style="margin: 6px;" href="{% url 'carritocompras' %} "></a>
+      <a class="nav-link dropdown-toggle activo" href="#" role="button" data-bs-toggle="dropdown">Cuenta</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'modificardatos' %}">Modificar datos</a></li>
+        <li><a class="dropdown-item" href="{% url 'logout' %}">Salir</a></li>
+      </ul>
+    </li>
+  </form>
+{%endblock%}
+{% block contenido %}
+<div class="decoracion"><h1>Modificar datos</h1></div>
+
+    <form action="../mi-cuenta/menu-ingresado.html" class="formulario" method="get">
+       
+       <div class="contenedor" id="formulario-inicio-registro">
+       <p style="text-align: left;">Nuevo nombre:</p>
+       <div class="input-contenedor">
+           <i class="fas fa-user icon"></i>
+           <input type="text" placeholder="Juan Perez Lavin" id="txtNombreRegistroNuevo" name="txtNombreRegistroNuevo">
+           </div>
+           <p style="text-align: left;">Nuevo correo:</p>
+           <div class="input-contenedor">
+           <i class="fas fa-envelope icon"></i>
+           <input type="email" placeholder="contacto@macetitas.cl" id="txtEmailRegistroNuevo" name="txtEmailRegistroNuevo">
+           </div>
+           <p style="text-align: left;">Nueva contraseña:</p>
+           <div class="input-contenedor">
+          <i class="fas fa-key icon"></i>
+           <input type="password" placeholder="Contraseña" id="txtPassRegistro Nuevo" name="txtPassRegistroNuevo">
+           
+           </div>
+           <input href="" type="submit" value="Actualizar" class="btn btn-success"  id="btnGuardarDatos" name="btnGuardarDatos">
+           
+       </div>
+      </form>
+{% endblock %}

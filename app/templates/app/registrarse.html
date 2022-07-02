@@ -1,0 +1,46 @@
+{% extends 'app/base.html' %}
+{%load static %}
+{%block navbar%}
+<a href="{% url 'index' %}"><img class="logo" src="{% static 'app/img/logo_mis_macetitas_1370x256.png' %}" alt=""></a>
+<div class="collapse navbar-collapse" id="mynavbar">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'quienessomos' %}">¿Quiénes somos?</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link activo" href="{% url 'login' %}">Iniciar sesión</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'contacto' %}">Contacto</a>
+    </li>
+
+  </ul>
+{%endblock%}
+{%block contenido %}
+<div class="decoracion"></div>
+<form action="mi-cuenta/menu-ingresado.html" class="formulario" method="get">
+   <h1>Regístrate</h1>
+    <div class="contenedor" id="formulario-inicio-registro">
+      <p style="text-align: left;">Nombre completo:</p>
+    <div class="input-contenedor">
+        <i class="fas fa-user icon"></i>
+        <input type="text" placeholder="Juan Perez Lavin" id="txtNombreRegistro" name="txtNombreRegistro">
+        </div>
+        <p style="text-align: left;">Correo Electronico::</p>
+        <div class="input-contenedor">
+        <i class="fas fa-envelope icon"></i>
+        <input type="email" placeholder="contacto@macetitas.cl" id="txtEmailRegistro" name="txtEmailRegistro">
+        </div>
+        <p style="text-align: left;">Contraseña:</p>
+        <div class="input-contenedor">
+       <i class="fas fa-key icon"></i>
+        <input type="password" placeholder="Contraseña" id="txtPassRegistro" name="txtPassRegistro">
+        </div>
+        <input href="" type="submit" value="Regístrate" class="btn btn-success"  id="btnRegistrar" name="btnRegistrar">
+        <p>¿Ya tienes una cuenta?<a class="link" href="{% url 'iniciarsesion' %}"> Iniciar sesión</a></p>
+    </div>
+   </form>
+{% endblock%}

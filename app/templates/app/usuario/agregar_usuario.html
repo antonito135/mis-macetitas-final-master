@@ -1,0 +1,48 @@
+{% extends 'app/base.html' %}
+{%load static %}
+{% load crispy_forms_tags %}
+{%block navbar%}
+<a href="{% url 'index' %}"><img class="logo" src="{% static 'app/img/logo_mis_macetitas_1370x256.png' %}" alt=""></a>
+<div class="collapse navbar-collapse" id="mynavbar">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'usuarioindex' %}">Inicio</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'listarusuario' %}">Listado</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link activo" href="{% url 'agregarusuario' %}">Agregar</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'logout' %}">Salir</a>
+    </li>
+  </ul>
+{%endblock%}
+
+{% block contenido %}
+<section id="quienes-somos">
+  <div id="div-quienes-somos">
+    <h1>¡Agregar Usuario!</h1>
+    <p>En está seccion podrás agregar usuarios.</p>
+  </div>
+</section>
+<div class="container" style=" margin-top: 45px;" id="desc-suscripcion">
+  <div class="row">
+    <div class="col-6"><img src="{% static 'app/img/planta-mano.jpg' %}" alt="" height="350" width="500"></div>     
+          <div class="col-6">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{user|crispy}}
+                </table>
+                <input type="submit" class="btn btn-success" value="Guardar" style="width: 36%; margin-top: 15px;">
+            </form>
+            {{mensaje}}
+          </div>
+    </div>   
+  </div>
+  </div>
+  <br>
+  </section>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'app/base.html' %}
+{%load static %}
+{%block navbar%}
+<a href="{% url 'menuingresado' %}"><img class="logo" src="{% static 'app/img/logo_mis_macetitas_1370x256.png' %}" alt=""></a>
+<div class="collapse navbar-collapse" id="mynavbar">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link  " href="{% url 'menuingresado' %}">Inicio</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tienda</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href=" {% url 'maceteros' %} ">Maceteros</a></li>
+        <li><a class="dropdown-item" href=" {% url 'tierradehoja' %} ">Tierra de hoja</a></li>
+        <li><a class="dropdown-item" href="{% url 'arbustos' %} ">Arbustos</a></li>
+        <li><a class="dropdown-item" href=" {% url 'flores' %} ">Flores</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'historialcompras' %}">Historial compras</a>
+    </li>
+    <li>
+      {% if user.is_staff %}
+      <a class="nav-link" href="http://127.0.0.1:8000/admin/">administracion</a>
+      {% endif%}
+    </li>
+    <li class="nav-item">
+      <a class="nav-link activo" href="{% url 'suscripcion' %}">Suscripcion</a>
+    </li>
+    <li>
+    </li>
+  </ul>
+  <form class="d-flex">
+    <li class="nav-item dropdown navbar-nav me-auto">
+      <a class="nav-link fa-solid fa-cart-shopping "rel="icon" style="margin: 6px;" href="{% url 'carritocompras' %} "></a>
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Cuenta</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'modificardatos' %}">Modificar datos</a></li>
+        <li><a class="dropdown-item" href="{% url 'logout' %}">Salir</a></li>
+      </ul>
+    </li>
+  </form>
+</form>
+{% if app_suscripcion == 0 %}
+<form class="d-flex">
+  <li class="nav-item navbar-nav me-auto">
+    <a class="nav-link " href="{% url 'suscripcion' %}">suscribirse</a>
+  </li>
+</form>
+{% endif %}
+{%endblock%}
+
+{%block contenido %}
+<div class="decoracion"><h1>Suscripcion</h1></div>
+<br>
+<section class="container-fluid" id="desc-suscripcion">
+    <div id="div-desc-suscripcion">
+    <div class="row">
+        <div class="col-6">
+            <img src="{% static 'app/img/planta-mano.jpg' %}" alt="" height="250" width="400"></div>
+        <div class="col-6">
+            <p>
+              Al suscribirse recibe información relevante, ademas se le enviara de forma constante
+              ofertas especialmente dirigidas a ti, tambien se le otorgara un 5% en el total de sus ventas.
+            </p>
+            {% for aux in suscripciones %}
+            <form action="" method="post">
+              {% csrf_token %}
+              {% if user.get_username == aux.usuario %}
+              {% if aux.suscrito %}
+              <input type="hidden" name="estado" id="estado" value="False">
+              <button class="boton-finalizar" type="submit" >Desuscribirse</button>
+              {% else %}
+              <input type="hidden" name="estado" id="estado" value="True">
+              <button class="boton-finalizar" type="submit" >Suscribirse</button>
+              {% endif %}
+              {% endif %}
+            </form>
+            {% endfor %}
+            </div>
+    </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+</section>
+
+{% endblock %}

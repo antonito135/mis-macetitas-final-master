@@ -1,0 +1,115 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block navbar %}
+<a href="{% url 'menuingresado' %}"><img class="logo" src="{% static 'app/img/logo_mis_macetitas_1370x256.png' %}" alt=""></a>
+<div class="collapse navbar-collapse" id="mynavbar">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'menuingresado' %}">Inicio</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tienda</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href=" {% url 'maceteros' %} ">Maceteros</a></li>
+        <li><a class="dropdown-item" href=" {% url 'tierradehoja' %} ">Tierra de hoja</a></li>
+        <li><a class="dropdown-item" href="{% url 'arbustos' %} ">Arbustos</a></li>
+        <li><a class="dropdown-item" href=" {% url 'flores' %} ">Flores</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'historialcompras' %}">Historial compras</a>
+    </li>
+      <li>
+        {% if user.is_staff %}
+        <a class="nav-link" href="http://127.0.0.1:8000/admin/">administracion</a>
+        {% endif%}
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'suscripcion' %}">Suscripcion</a>
+      </li>
+    </li>
+  </ul>
+  <form class="d-flex">
+    <li class="nav-item dropdown navbar-nav me-auto">
+      <a class="nav-link fa-solid fa-cart-shopping activo"rel="icon" style="margin: 6px;" href="{% url 'carritocompras' %} "></a>
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Cuenta</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'modificardatos' %}">Modificar datos</a></li>
+        <li><a class="dropdown-item" href="{% url 'logout' %}">Salir</a></li>
+      </ul>
+    </li>
+  </form>
+{% endblock %}
+
+{% block contenido %}
+<div class="decoracion"><h1>Compras</h1></div>
+    <div class="carro-de-compras">
+      <div class="contenedor-tabla">
+        <table>
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for aux in listaCarrito %}
+            {% if user.get_username == aux.usuario %}
+            <tr>
+              
+              <td data-th="Producto" class="producto">
+                <div class="img-producto"><img src="{{aux.imagen.url}}"/></br></div>
+                <div class="desc-producto"><p>{{aux.nombre}}</p></div>
+              </td>
+              <td>
+                <p>{{aux.cantidad}}</p>
+              </td>
+              <td data-th="Precio" class="precio">
+                <p>${{aux.precio}}</p>
+              </td>
+              <td data-th="Subtotal" class="precio eliminar">
+                <form action="" method="post">
+                  {% csrf_token %}
+                  <input type="hidden" name="id" id="id" value="{{ aux.id }}">
+                  <input type="hidden" name="codigop" id="codigop" value="{{aux.codigo}}">
+                  <input type="hidden" name="stocks" id="stocks" value="{{aux.cantidad}}">
+                  <!--Rescata el stock desde la nueva variable que llamamos cantidad y eso añadeselo en las views al momento de añadir un objeto al carrito-->
+                  <button class="btn-light" style="color: red;" type="submit"><i class="fa-solid fa-trash"></i></button>
+                </form>
+              </td>							
+            </tr>	
+            {% endif %}
+            {% endfor %}						
+          </tbody>
+        </table>
+      </div>
+      <div class="contenedor-carrito">
+        <div class="resumen-carrito">
+          <b>Resumen</b><hr>	
+          <p>Cotizar envío</p><hr>
+          {% for aux in suscripciones %}
+          <form action="" method="post">
+            {% csrf_token %}
+            {% if user.get_username == aux.usuario %}
+              {% if aux.suscrito %}
+                 <p>5% Descuento: {{ desc|floatformat:0 }}</p><hr>
+                 <p>Total: {{ totaldescuento|floatformat:0 }}</p><hr>
+              {% else %}
+                 <p>5% Descuento: {{ desc|floatformat:0 }} (NO APLICA)</p><hr>
+                 <p>Total: {{ total|floatformat:0 }}</p><hr>	
+            {% endif %}
+            {% endif %}
+          
+          </form>
+          {% endfor %}
+          <p>Código descuento</p><hr>	
+          <p style="text-align: center;"><a id="btn_proceso_compra" href="{% url 'finalizarcompra' %} ">Ir a pagar</a></p>
+        </div>	
+      </div>
+    </div>	
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}

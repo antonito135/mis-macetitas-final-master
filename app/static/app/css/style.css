@@ -1,0 +1,858 @@
+.logo{
+    width: 100%;
+    max-width: 200px;
+    margin-right: 30px;
+}
+
+.menu-macetitas{
+    background: #1a7b1b !important;
+}
+
+.boton-macetitas{
+    background: #eeb840 !important;
+    border: none !important;
+}
+
+
+
+.body-historial-compras footer{
+    position:absolute;
+}
+
+
+footer img{
+    width: 100%;
+    max-width: 140px;
+}
+footer p{
+    margin-bottom: 0 !important;
+}
+
+#quienes-somos{
+    background: #aad490;
+}
+
+#div-quienes-somos{
+    text-align: center;
+    max-width: 800px;
+    padding: 30px;
+    margin: auto;
+}
+
+#mas-comprados{
+    text-align: center !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+#botones-formulario-ingreso{
+    padding:10px;
+}
+.form-group{
+    text-align: left;
+}
+#div-mas-comprados{
+    max-width: 800px !important;
+    margin: auto !important;
+    padding: 30px !important;
+    
+}
+
+#div-mas-comprados p{
+    background: #aad490 !important;
+    width: 120px !important;
+    margin-left: 55px !important;
+    margin-top: 5px !important;
+    border-radius: 30px !important;
+}
+h1,h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+#div-mas-comprados img{
+    width: 100% !important;
+    max-width: 200px !important;
+    padding: 10px !important;
+}
+.precio{
+    font-size: 20px;
+    font-weight: bold;
+    color: #f68c00;
+}
+.carousel-caption{
+    background: #00000069;
+    bottom:30% !important;
+}
+.activo{
+    background: #1e6e1f;
+    border-radius: 5px;
+}
+#div-desc-quienes-somos{
+    max-width: 800px;
+    margin: auto;
+}
+#div-desc-quienes-somos img{
+    width: 100%;
+}
+#div-desc-quienes-somos h1{
+    text-align: center;
+    margin: 20px;
+}
+.decoracion{
+    width: 100%;
+    min-height: 150px;
+    background: url(../img/slide-1.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.decoracion h1 {
+    background: #00000087;
+    height: 150px;
+    color: #fff;
+    justify-content: space-evenly;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#desc-quienes-somos{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+label {
+    display: flex;
+}
+
+#formulario input[type="email"]{
+    border: 1px solid #eeb840 !important;
+    width: 100% !important;
+}
+
+input, textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #eeb840;
+    border-radius: 3px;
+    background: #fffdf9;
+}
+
+.contacto{
+    background: #e2f6d5;
+    padding: 0;
+}
+
+#div-desc-quienes-somos p{
+    text-align:justify;
+}
+
+@media  (max-width:600px){
+    #div-desc-quienes-somos .col-6{
+        width:100% 
+        !important;
+    }
+
+    .carousel-caption{
+        bottom:20% !important;
+        padding-top:0 !important;
+        padding-bottom:0 !important;
+    }
+
+    .carousel-caption h3{
+        font-size:15px !important;
+    }
+
+    .carousel-caption p{
+        font-size:12px !important;
+    }
+
+    .col-4{
+        width:100% !important;
+    }
+    #div-mas-comprados p{
+        margin-left: 150px !important;
+    }
+    #desc-suscripcion .col-6{
+        width:100% 
+        !important;
+    }
+    #desc-suscripcion .col-6 img{
+        width:100% 
+        !important;
+        padding: 20px;
+    }
+    #desc-suscripcion .col-6 img .input-contenedor{
+        width:100% 
+        !important;
+        padding: 600px;
+    }
+    .carro-de-compras{
+        align-items: center;
+        flex-direction: column !important;
+    }
+    .contenedor-carrito{
+        width: 80% !important;
+    }
+    .contenedor-pago{
+		flex-direction: column;
+	}
+	
+	.resumen-finalizar{
+		margin:20px;
+	}
+
+	.forma-de-pago{
+		flex-direction: column;
+	}
+	.direccion-de-envio{
+        margin: 15px;
+    }
+}
+#suscripcion{
+    background: #aad490;
+}
+#div-suscripcion{
+    text-align: center;
+    max-width: 800px;
+    padding: 30px;
+    margin: auto;
+}
+#div-desc-suscripcion{
+    max-width: 800px;
+    margin: auto;
+}
+#div-desc-suscipcion img{
+    width: 100%;
+}
+#div-desc-suscripcion h1{
+    text-align: center;
+    margin: 20px;
+}
+#desc-suscripcion{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/*inicio de sesion*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+   background: url(imagen.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+* {
+    box-sizing: border-box;
+}
+.contenedor{
+    width: 100%;
+    padding: 15px;
+}
+.formulario{
+    background: #fff;
+    margin-top: 150px;
+    padding: 3px;
+    margin: auto;
+    width: 500px;
+    margin-top: 50px;
+    border-radius: 2%;
+    margin-bottom: 50px;
+}
+h1{
+    text-align: center;
+    color: #1a7b1b;
+    font-size: 40px;
+}
+.input-contenedor{
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+    margin-top: 20px;
+    padding: 10px;
+}
+.icon{
+    min-width: 50px;
+    text-align: center;
+    color: #999;
+}
+.button{
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background:  #1a7b1b;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button:hover{
+    background: cadetblue;
+}
+p{
+    text-align: center;
+}
+.link{
+    text-decoration: none;
+      color: #1a7b1b;
+    font-weight: 600;
+}
+.link:hover{
+     color: cadetblue;
+}
+.col-6 p{
+    margin-top: 50px;
+    margin-right: 30px;
+    
+}
+::placeholder {
+    color: rgb(202, 202, 202);
+    
+  }
+  .btn-primary {
+    
+    background-color: #edc772 !important;
+    border-color: #aed893 !important;
+    position: relative !important;
+    float: right !important;
+}
+
+
+.col-sm-12 {
+    margin-bottom: 15px !important;
+    margin-top: 15px !important;
+}
+
+.card-title {
+    text-align: center !important;
+}
+
+.card-body {
+    text-align: center !important;
+}
+
+.carro-de-compras{
+	width:100%;
+	max-width:1000px;
+	margin:auto;
+	position:relative;
+	display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.contenedor-tabla{
+	width:80%;
+	padding:15px;
+}
+
+.contenedor-tabla table{
+	width:100%;
+}
+
+.contenedor-tabla img{
+	width:100%;
+	max-width:120px;
+}
+
+.contenedor-carrito{
+	width:20%;
+}
+
+.producto{
+	text-align:center;
+}
+
+thead{
+	border-bottom: 1px solid #cfcfcf;
+}
+
+thead th{
+	padding-bottom: 10px;
+}
+
+.cantidad p{
+	font-weight: bold;
+    border: 1px solid #000;
+    text-align: center;
+    max-width: 40px;
+    position: relative;
+}
+
+tbody tr{
+	border-bottom: 1px solid #cfcfcf;
+}
+
+.img-producto{
+	padding-top:10px;
+}
+
+.desc-producto{
+	padding-bottom:10px;
+}
+
+.resumen-carrito {
+    background: #dcf7dc;
+    padding: 15px;
+}
+
+.resumen-carrito p {
+    text-align: left;
+}
+
+
+.eliminar p:after {
+    content: "x";
+    margin-left: 20px;
+    color: #fff;
+    background: #f00;
+    text-align: center;
+    padding: 2px 6px 4px 6px;
+    border-radius: 100%;
+	cursor:pointer;
+}
+
+.cantidad input[type="number"]{
+    width: 100%;
+    max-width: 40px;
+}
+#btn_proceso_compra{
+    background: #1a7b1b;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    width: 100%;
+}
+.direccion-de-envio table{
+	width:100%;
+}
+
+.direccion-de-envio input[type="text"],
+.direccion-de-envio input[type="email"],
+.direccion-de-envio input[type="number"],
+.direccion-de-envio input[type="select"]{
+	width:auto;
+	border: 1px solid #eeb840 !important;
+}
+
+.direccion-de-envio tbody tr {
+    border-bottom: none;
+}
+
+.direccion-de-envio p {
+    text-align: left;
+}
+
+.contenedor-pago {
+    width: 100%;
+    margin: auto;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.resumen-finalizar {
+    background: #dcf7dc;
+    padding: 15px;
+}
+
+.boton-finalizar{
+    background: #1a7b1b;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.resumen-finalizar p {
+    text-align: left;
+}
+
+.direccion-de-envio img {
+    width: 100%;
+    max-width: 100px;
+}
+
+.forma-de-pago {
+    display: flex;
+    align-items: center;
+}
+
+.foto-tamaño{
+    margin: 50px !important;
+    padding: 20px !important;
+    width: 50% !important;
+    
+
+}
+
+/*  seguimiento */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+/* Resetting */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav {
+    min-height: 70px;
+}
+
+nav .navbar-brand .logo {
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+nav .navbar-brand .logo .h2 {
+    margin: 0;
+}
+
+nav .navbar-brand .h4 {
+    margin-bottom: 0px;
+    font-weight: 900;
+}
+
+nav .navbar-brand .fs-6 {
+    font-size: 0.88rem !important;
+}
+
+nav ul li {
+    padding: 0 20px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #333;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #4e2296;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: #451296;
+}
+
+nav ul li a .cart {
+    padding: 4px 6px;
+    border-radius: 6px;
+    position: relative;
+    display: inline;
+}
+
+nav ul li a .cart::after {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ff5252;
+    top: -1px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+#sidebar {
+    padding: 15px 0px 15px 0px;
+    border-radius: 10px;
+}
+
+#sidebar .h4 {
+    font-weight: 500;
+    padding-left: 15px;
+}
+
+#sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0rem;
+}
+
+#sidebar ul li {
+    padding: 10px 0;
+    display: block;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-left: 5px solid transparent;
+}
+
+#sidebar ul li.active {
+    border-left: 5px solid #ff5252;
+    background-color: #44007c;
+}
+
+#sidebar ul li a {
+    display: block;
+}
+
+#sidebar ul li a .fas,
+#sidebar ul li a .far {
+    color: #ddd;
+}
+
+#sidebar ul li a .link {
+    color: #fff;
+    font-weight: 500;
+}
+
+#sidebar ul li a .link-desc {
+    font-size: 0.8rem;
+    color: #ddd;
+}
+
+#main-content {
+    padding: 30px;
+    border-radius: 15px;
+}
+
+#main-content .h5,
+#main-content .text-uppercase {
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+#main-content .h5+div {
+    font-size: 0.9rem;
+}
+
+#main-content .box {
+    padding: 10px;
+    border-radius: 6px;
+    width: 170px;
+    height: 90px;
+}
+
+#main-content .box img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+#main-content .box .tag {
+    font-size: 0.9rem;
+    color: #000;
+    font-weight: 500;
+}
+
+#main-content .box .number {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.order {
+    padding: 10px 30px;
+    min-height: 150px;
+}
+
+.order .order-summary {
+    height: 100%;
+}
+
+.order .blue-label {
+    background-color: #aeaeeb;
+    color: #0046dd;
+    font-size: 0.9rem;
+    padding: 0px 3px;
+}
+
+.order .green-label {
+    background-color: #a8e9d0;
+    color: #008357;
+    font-size: 0.9rem;
+    padding: 0px 3px;
+}
+
+.order .fs-8 {
+    font-size: 0.85rem;
+}
+
+.order .rating img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.order .rating .fas,
+.order .rating .far {
+    font-size: 0.9rem;
+}
+
+.order .rating .fas {
+    color: #daa520;
+}
+
+.order .status {
+    font-weight: 600;
+}
+
+.order .btn.btn-primary {
+    background-color: #fff;
+    color: #4e2296;
+    border: 1px solid #4e2296;
+}
+
+.order .btn.btn-primary:hover {
+    background-color: #4e2296;
+    color: #fff;
+}
+
+.order .progressbar-track {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.order .progressbar-track .progressbar {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0rem;
+}
+
+.order .progressbar-track .progressbar li {
+    font-size: 1.5rem;
+    border: 1px solid #333;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: #dddddd;
+    z-index: 100;
+    position: relative;
+}
+
+.order .progressbar-track .progressbar li.green {
+    border: 1px solid #007965;
+    background-color: #d5e6e2;
+}
+
+.order .progressbar-track .progressbar li::after {
+    position: absolute;
+    font-size: 0.9rem;
+    top: 50px;
+    left: 0px;
+}
+
+#tracker {
+    position: absolute;
+    border-top: 1px solid #bbb;
+    width: 100%;
+    top: 25px;
+}
+
+#step-1::after {
+    content: 'Placed';
+}
+
+#step-2::after {
+    content: 'Accepted';
+    left: -10px;
+}
+
+#step-3::after {
+    content: 'Packed';
+}
+
+#step-4::after {
+    content: 'Shipped';
+}
+
+#step-5::after {
+    content: 'Delivered';
+    left: -10px;
+}
+
+
+
+/* Backgrounds */
+.bg-purple {
+    background-color: #55009b;
+}
+
+.bg-light {
+    background-color: #f0ecec !important;
+}
+
+.green {
+    color: #007965 !important;
+}
+
+
+/* Media Queries */
+@media(max-width: 1199.5px) {
+    nav ul li {
+        padding: 0 10px;
+    }
+}
+
+@media(max-width: 500px) {
+    .order .progressbar-track .progressbar li {
+        font-size: 1rem;
+    }
+
+    .order .progressbar-track .progressbar li::after {
+        font-size: 0.8rem;
+        top: 35px;
+    }
+
+    #tracker {
+        top: 20px;
+    }
+}
+
+@media(max-width: 440px) {
+    #main-content {
+        padding: 20px;
+    }
+
+    .order {
+        padding: 20px;
+    }
+
+    #step-4::after {
+        left: -5px;
+    }
+}
+
+@media(max-width: 395px) {
+    .order .progressbar-track .progressbar li {
+        font-size: 0.8rem;
+    }
+
+    .order .progressbar-track .progressbar li::after {
+        font-size: 0.7rem;
+        top: 35px;
+    }
+
+    #tracker {
+        top: 15px;
+    }
+
+    .order .btn.btn-primary {
+        font-size: 0.85rem;
+    }
+}
+
+@media(max-width: 355px) {
+    #main-content {
+        padding: 15px;
+    }
+
+    .order {
+        padding: 10px;
+    }
+}
+
+footer{
+    background: rgb(35, 35, 35);
+    color: white;
+    text-align: center;
+    padding: 15px;  
+    width: 100%;
+    align-self: flex-end;
+
+}

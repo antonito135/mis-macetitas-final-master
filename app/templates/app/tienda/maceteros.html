@@ -1,0 +1,84 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block navbar %}
+<a href="{% url 'menuingresado' %}"><img class="logo" src="{% static 'app/img/logo_mis_macetitas_1370x256.png' %}" alt=""></a>
+<div class="collapse navbar-collapse" id="mynavbar">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link" href=" {% url 'menuingresado' %} ">Inicio</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link activo dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tienda</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'maceteros' %}">Maceteros</a></li>
+        <li><a class="dropdown-item" href=" {% url 'tierradehoja' %} ">Tierra de hoja</a></li>
+        <li><a class="dropdown-item" href="{% url 'arbustos' %} ">Arbustos</a></li>
+        <li><a class="dropdown-item" href="{% url 'flores' %}">Flores</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'historialcompras' %}">Historial compras</a>
+    </li>
+      <li>
+        {% if user.is_staff %}
+        <a class="nav-link" href="http://127.0.0.1:8000/admin/">administracion</a>
+        {% endif%}
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'suscripcion' %}">Suscripcion</a>
+      </li>
+    </li>
+  </ul>
+  <form class="d-flex">
+    <li class="nav-item dropdown navbar-nav me-auto">
+      <a class="nav-link fa-solid fa-cart-shopping "rel="icon" style="margin: 6px;" href="{% url 'carritocompras' %} "></a>
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Cuenta</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'modificardatos' %}">Modificar datos</a></li>
+        <li><a class="dropdown-item" href="{% url 'logout' %}">Salir</a></li>
+      </ul>
+    </li>
+  </form>
+{% endblock %}
+
+{% block contenido %}
+<div class="decoracion"><h1>Maceteros</h1></div>
+
+
+            <section id="mas-comprados">
+                <div id="div-mas-comprados">
+                  <div class="row">
+                    {% for aux in listaProductos %}
+                      {% if "Macetero" in aux.tipo.tipo %}
+                        <div class="col-4">
+                          {% if aux.imagen %}
+                            <img src="{{ aux.imagen.url }}" class="img-fluid item-img w-100 mb-3">
+                          {% else %}
+                            <img src="{% static 'app/img/macetero-1.png' %}" class="img-fluid item-img w-100 mb-3">
+                          {% endif %}
+                          {% if aux.stock >= 1 %}
+                            <p>{{aux.nombre}}</p>
+                            <p>stock: {{aux.stock}}</p>
+                            <p>$ {{ aux.precio}}</p>
+                          {% else %}
+                            <p>stock agotado</p>
+                          {% endif %}
+                          <form action="" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="nombre" id="nombre" value="{{ aux.nombre }}">
+                            <input type="hidden" name="precio" id="precio" value="{{ aux.precio }}">
+                            <input type="hidden" name="imagen" id="imagen" value="{{ aux.imagen }}">
+                            <input type="number" name="stocks" id="stocks" min="1" max="{{aux.stock}}" value="1"/>
+                            <input type="hidden" name="codigop" id="codigop" value="{{aux.codigo}}">
+                            <input type="hidden" name="txtUsuario" value="{{ user.get_username }}">
+                            <input type="submit" class="btn btn-success">
+                          </form>
+                          <br>
+                        </div>
+                      {% endif %}
+                    {% endfor %}    
+                  </div>
+                </div>
+              </section>          
+
+{% endblock %}
